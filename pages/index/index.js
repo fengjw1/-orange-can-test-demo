@@ -50,5 +50,19 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+  },
+  onTapJump:function(event){
+    wx.redirectTo({
+      url: '../post/post',
+      success:function(){
+        console.log("onTapJump success!");
+      },
+      fail:function(){
+        console.log("onTapJump fail!");
+      },
+      complete:function(){
+        console.log("onTapJump complete!");
+      }
+    })
   }
 })

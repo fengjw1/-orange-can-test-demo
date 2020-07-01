@@ -1,4 +1,5 @@
 <!--pages/post/post.wxml-->
+<import src="post-item/post-item-tpl.wxml"/>
 <view>
     <swiper indicator-dots="true" autoplay="true" interval="5000" circular="true">
         <swiper-item>
@@ -11,56 +12,7 @@
             <image src="/images/post/post-3@text.jpg"/>
         </swiper-item>
     </swiper>
-</view>
-
-<view class="post-container">
-    <view class="post-author-date">
-        <image src="{{avatar}}"></image>
-        <text>{{object.date}}</text>
-    </view>
-    <text class="post-title">{{title}}</text>
-    <image class="post-image" src="{{postImg}}" mode="aspectFill"></image>
-    <text class="post-content">{{content}}</text>
-    <view class="post-like">
-        <image src="/images/icon/wx_app_collect.png"></image>
-        <text>{{collectionNum.array[0]}}</text>
-        <image src="/images/icon/wx_app_view.png"></image>
-        <text>{{readingNum}}</text>
-        <image src="/images/icon/wx_app_message.png"></image>
-        <text>{{commentNum}}</text>
-    </view>
-</view>
-<view class="post-container">
-    <view class="post-author-date">
-        <image src="/images/avatar/avatar-1.png"></image>
-        <text>Jan 9 2017</text>
-    </view>
-    <text class="post-title">从童年呼啸而过的火车</text>
-    <image class="post-image" src="/images/post/post-5.jpg" mode="aspectFill"></image>
-    <text class="post-content">小时候，家的后院有一条铁轨。听说从南方北上的火车都必须经过这条铁路。火车大多数在晚上经过，但是也不定时在夜深人静的时候，火车的声音才能从远方传来...</text>
-    <view class="post-like">
-        <image src="/images/icon/wx_app_collect.png"></image>
-        <text>108</text>
-        <image src="/images/icon/wx_app_view.png"></image>
-        <text>92</text>
-        <image src="/images/icon/wx_app_message.png"></image>
-        <text>7</text>
-    </view>
-</view>
-<view class="post-container">
-    <view class="post-author-date">
-        <image src="/images/avatar/avatar-3.png"></image>
-        <text>Jan 28 2017</text>
-    </view>
-    <text class="post-title">记忆里的春节</text>
-    <image class="post-image" src="/images/post/post-1.jpg" mode="aspectFill"></image>
-    <text class="post-content">年少时，有样儿东西，是春节里必不可少的：烟花、新衣、凉菜、压岁钱、饺子。年分大小年，有的地方是腊月二十三过小年，有的地方是腊月二十四...</text>
-    <view class="post-like">
-        <image src="/images/icon/wx_app_collect.png"></image>
-        <text>108</text>
-        <image src="/images/icon/wx_app_view.png"></image>
-        <text>92</text>
-        <image src="/images/icon/wx_app_message.png"></image>
-        <text>7</text>
-    </view>
+    <block wx:for="{{postList}}" wx:key="key" wx:for-item="item1" wx:for-index="idx">
+        <template is="postItemTpl" data="{{...item1}}"></template>
+    </block>
 </view>
