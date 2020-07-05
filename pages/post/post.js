@@ -1,5 +1,6 @@
 // pages/post/post.js
-var dataObj = require("../../data/data.js");
+import{DBPost} from '../../db/DBPost.js';
+
 Page({
 
     /**
@@ -14,8 +15,9 @@ Page({
      */
     onLoad: function (options) {
 
+        var dbPost = new DBPost();
         this.setData({
-            postList: dataObj.postList
+            postList: dbPost.getAllPostData()
         })
     },
 
